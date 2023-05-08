@@ -1,0 +1,4 @@
+- 비동기 서버 Netty
+- 스레드 1개
+- time slicing으로 서블릿 
+- 
