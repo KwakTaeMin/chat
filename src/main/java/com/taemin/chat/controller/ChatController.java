@@ -13,11 +13,11 @@ import reactor.core.scheduler.Schedulers;
 @RestController
 public class ChatController {
 
-    private ChatRepository chatRepository;
+    private final ChatRepository chatRepository;
 
     @GetMapping(value = "/sender/{sender}/receiver/{receiver}", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<Chat> getMessage(@PathVariable String sender, @PathVariable String receiver) {
-        return chatRepository.mFindBySender(sender, receiver)
+        return chatRepository.FindBySender(sender, receiver)
                 .subscribeOn(Schedulers.boundedElastic());
     }
 
